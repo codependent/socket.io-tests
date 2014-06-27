@@ -1,0 +1,15 @@
+doctype html
+html
+	head
+		title=title
+		script(type="text/javascript",src="/socket.io/socket.io.js",charset="UTF-8")
+		script.
+			var socket = io.connect("http://#{server}:#{port}");
+			socket.on("ping", function() {
+				console.log("PING!");
+				socket.emit("pong");
+			});
+	body
+		div.container #{title} #{server} #{port}
+			
+			
